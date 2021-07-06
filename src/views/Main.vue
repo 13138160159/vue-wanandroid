@@ -1,35 +1,31 @@
 <template>
   <div class="main">
-    <router-link to="/login">登录</router-link>
-    <router-link to="/register">注册</router-link>
-    <button @click="exit">退出</button>
+    <head-bar></head-bar>
   </div>
 </template>
 
 <script>
-import { Exit , ArticleList } from "../api/api";
+import headBar from "@/components/headBar";
+import { ArticleList } from "../api/api";
 export default {
   name: "Main",
   data() {
     return {};
   },
   methods: {
-    exit() {
-      Exit().then((res) => {
-        console.log("您已成功退出账号，你的cookie是：" + window.document.cookie);
-        this.$router.push("/login");
+    renderArticle() {
+      let num = 1;
+      ArticleList(num).then((res) => {
+        console.log(res.data);
       });
     },
-    renderArticle(){
-      let num = 1
-      ArticleList(num).then(res=>{
-        console.log(res.data);
-      })
-    }
   },
-  created () {
-    this.renderArticle()
-  }
+  created() {
+    // this.renderArticle();
+  },
+  components: {
+    headBar: headBar,
+  },
 };
 </script>
 

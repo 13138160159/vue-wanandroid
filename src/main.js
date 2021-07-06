@@ -2,9 +2,14 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import VueCookies from 'vue-cookies'
+import store from './store'
 import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+import './assets/css/base.css'
 
 // 设置token值
 // axios.defaults.headers.common['token] = ""
@@ -15,9 +20,9 @@ import VueAxios from 'vue-axios'
 // 设置axios的baseURL
 axios.defaults.baseURL = process.env.API_ROOT
 
-import './assets/css/base.css'
-
 Vue.use(VueAxios, axios)
+Vue.use(VueCookies)
+Vue.use(ElementUI);
 
 Vue.config.productionTip = false
 
@@ -25,6 +30,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
