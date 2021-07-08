@@ -21,6 +21,8 @@
         <el-form-item>
           <el-button type="primary" @click="login">登录</el-button>
           <el-button @click="resetForm" class="test">重置</el-button>
+        </el-form-item>
+        <el-form-item>
           <router-link class="toregister" to="/register">没有账号？马上注册</router-link>
         </el-form-item>
       </el-form>
@@ -81,7 +83,8 @@ body,
 }
 .login_content {
   width: 35%;
-  height: 300px;
+  min-width: 310px;
+  height: 310px;
   padding: 24px;
   border-radius: 10px;
   box-sizing: border-box;
@@ -108,6 +111,6 @@ body,
   color: white;
 }
 .login_content .form .toregister {
-  margin-left: 20px;
+  margin-top: -20px;
 }
 </style>
